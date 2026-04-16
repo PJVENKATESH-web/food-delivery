@@ -34,6 +34,7 @@
 </html> 
 
 # 3. Using React
+React.createElement => React Element - JS Object =>HTMLElement(render)
 a. Using CDN
 
 <!doctype html>
@@ -156,3 +157,31 @@ imports and exports are not used by js engine of browser, so we need to add type
 - Error Handling
 - Tree Shaking - remove unused code
 - Different dev and prod bundles
+
+# JSX with react component function
+function App(){
+
+  return (
+    <div>
+      <h1>Hello World from React JSX!</h1>
+    </div>
+  )
+}
+const root=ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />)
+
+# JSX with react element passing to a variable
+
+const App=<h1>Hello World from React JSX!</h1>
+const root=ReactDOM.createRoot(document.getElementById('root'));
+root.render(App)
+
+# JSX(transpiled before it reaches the JS) - PARCEL - Babel(covert the code from JSX to react code)
+
+# JSX=(Babel)=>React.createElement => ReactElement-JS Object =>HTMLElement(render)
+
+<!-- React Element -->
+const heading= (<h1 className='head' tabIndex='5'>Namaste React using JSX</h1>)
+
+<!-- React Functional Component -->
+const heading=()=>(<h1 className='heading'>Namaste React Functional Component</h1>)

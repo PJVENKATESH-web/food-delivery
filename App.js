@@ -1,11 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-const heading = React.createElement(
-  "h1",
-  { id: "heading" },
-  "Hello World from React!",
-);
+// creating the React Element from JSX
+//React.createElement => Object =>HTMLElement(render)
+// const heading = React.createElement('h1',{},'Hello World from React!');
+// const root= ReactDOM.createRoot(document.getElementById('root'));
+// root.render(heading);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading);
+// JSX 
+function App(){
+
+  return (
+    <div>
+      <h1>Hello World from React JSX!</h1>
+    </div>
+  )
+}
+const root=ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />) 
+
+
