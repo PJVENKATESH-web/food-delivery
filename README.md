@@ -63,17 +63,7 @@ a. Using CDN
 
 # b. Nested element
 
-/**
- *
- *
- *
- * <div id='parent'>
- *      <div id='child'>
- *          <h1></h1>
- *      </div>
- * </div>
- *
- *
+
  const parent = React.createElement(
   "div",
   { id: "parent" },
@@ -83,26 +73,10 @@ a. Using CDN
     React.createElement("h1", { id: "heading" }, "I am h1 tag"),
   ),
 );
- *
- */
-
-
 
 ReactElement(Object)=>HTML(BROWSER Understands)
-
 # c. Siblings 
-/**
- *
- *
- *
- * <div id='parent'>
- *      <div id='child'>
- *          <h2>I'm first child</h2>
- *           <h2>I'm second child</h2>
- *      </div>
- * </div>
- *
- *
+
  const parent = React.createElement(
   "div",
   { id: "parent" },
@@ -114,28 +88,71 @@ ReactElement(Object)=>HTML(BROWSER Understands)
         React.createElement("h2", { id: "child2" }, "I am second child"),
     ]
   ));
-
- *
- */
-
 # Need of JSX
 
-React is not only written in JSX, it can be created by React.CreateElement. So, JSX will help us make easy to write the code.
+-- React is not only written in JSX, it can be created by React.CreateElement. So, JSX will help us make easy to write the code.
 
-
-<body>
-    <div id="root">
-        <h1>Akshay</h1>
-    </div>
-    <script
-      crossorigin
-      src="https://unpkg.com/react@18/umd/react.development.js"
-    ></script>
-    <script
-      crossorigin
-      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
-    ></script>
-    <script src="./App.js"></script>
 
 -- Initially it render the root with Akshay and after it replaced by the Hello World! from React;
 
+
+# EP-2: Igniting our app
+1. create repo in github - food-delivery
+2. initialise the local folder - git init
+3. Change the master to main branch - git branch -M main -- github has the master as main branch
+4. add the files to staging -  git add .
+5. commit - git commit -m 'episode-1'
+6. connect remote to local - git remote add origin https://github.com/PJVENKATESH-web/food-delivery.git
+7. push the code from to local to remote - git push origin main
+
+
+
+# what is the difference between caret(^) and tilde(~)
+A new version came 
+for minor version - caret is used (^)
+for major version - tilde is used (~)
+
+Always use the minor version (^)
+
+Installing parcel bundler to our app
+
+npm i -D parcel
+
+npx parcel index.html
+
+main is for libraries - Parcel apps uses index.html as entry
+so 
+change the script
+"scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+
+npm install react react-dom;
+
+In App.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+imports and exports are not used by js engine of browser, so we need to add type='module' in the script
+ <script type='module' src='App.js'></script>
+
+# Parcel
+- Dev Build
+- local server
+- Hot Module Replacement = HMR(fast of reloading the webpages)
+- File Watching Algorithm (written in C++)
+- Faster builds(because of caching in .parcel-cache)
+- Image Optimization
+- Minification
+- Bundling
+- Compressing
+- Consistent Hashing
+- Code Splitting
+- Differential Bundling- support older browser
+- HTTPS hoisting
+- Diagnostics
+- Error Handling
+- Tree Shaking - remove unused code
+- Different dev and prod bundles
