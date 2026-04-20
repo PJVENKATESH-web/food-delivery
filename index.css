@@ -5,13 +5,14 @@ body{
 .header{
     display: flex;
     justify-content: space-between;
-    background-color: lightblue;
+    /* background-color: lightblue; */
     align-items: center;
     padding: 5px 24px;
-    
 }
 .logo{
     width: 100px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .nav-items > ul{
@@ -38,7 +39,7 @@ body{
     padding: 5px;
     overflow: hidden;
     border-radius: 10px;
-     border: 1px solid lightgray;
+    border: 1px solid lightgray;
 }
 .restaurant-card:hover{
     border: 1px solid black;
@@ -51,4 +52,10 @@ body{
     height: 120px;
     border-radius: 8px;
     object-fit: cover;
+}
+
+.topRatedRestaurants{
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px;
 }
