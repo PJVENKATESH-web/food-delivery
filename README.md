@@ -185,3 +185,33 @@ const heading= (<h1 className='head' tabIndex='5'>Namaste React using JSX</h1>)
 
 <!-- React Functional Component -->
 const heading=()=>(<h1 className='heading'>Namaste React Functional Component</h1>)
+
+# Namaste Food
+/*
+ *AppLayout
+ *-Header
+ *--Logo
+ *--Nav Items
+ *-Body
+ *--Search
+ *--Restaurant Container
+ *---RestaurantCard
+ *----Image|Name of Res|Star Rating|Cuisines|DeliveryTime
+ *-Footer
+ *--Copywright|Links|address|Contact
+ *
+ */
+
+# Two types od Export/Import
+ 
+ -Default Export/Import
+
+ export default Component;
+ import Component from 'path';
+
+ -Named Export/Import
+
+ export const Component;
+ import {Component} from 'path;
+
+
