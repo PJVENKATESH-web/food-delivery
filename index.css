@@ -8,6 +8,7 @@ body{
     /* background-color: lightblue; */
     align-items: center;
     padding: 5px 24px;
+
 }
 .logo{
     width: 100px;
@@ -17,6 +18,7 @@ body{
 
 .nav-items > ul{
  display: flex;
+ align-items: center;
  list-style-type: none;
  
 }
@@ -39,6 +41,7 @@ body{
     padding: 5px;
     overflow: hidden;
     border-radius: 10px;
+    /* background-color: aqua; */
     border: 1px solid lightgray;
 }
 .restaurant-card:hover{
@@ -53,9 +56,37 @@ body{
     border-radius: 8px;
     object-fit: cover;
 }
-
+.filter{
+    display: flex;
+}
+.search{
+    border-radius: 10px;
+}
+.search-box, .search-button{
+    padding: 5px;
+}
 .topRatedRestaurants{
     cursor: pointer;
     margin: 10px;
     padding: 5px;
+}
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-card{
+    margin: 4px;
+    width: 180px;
+    height: 350px;
+    padding: 5px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid lightgray;
+}
+.login-logout{
+    padding: 5px 10px;
+    cursor: pointer;
+
 }

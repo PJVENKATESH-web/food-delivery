@@ -218,4 +218,50 @@ const heading=()=>(<h1 className='heading'>Namaste React Functional Component</h
 # React Hooks
 (Normal JS utility functions)
 -useState() - State Variables
--useEffect() - 
+-useEffect() - executing the callback function after rendering the component
+
+# Login/Logout
+
+1 way of updating either log in or log out
+  const [btnName,setBtnName]=useState('Log In');
+
+  <button className="login-logOut"
+          onClick={()=>{
+            setBtnName(btnName==='Log In'?'Log Out':'Log In')
+          }>{btnName}</button>
+
+
+  <button className="login-logOut"
+          onClick={()=>{
+            btnName==='Log In'? setBtnName('Log Out'):setBtnName('Log In')
+          }>{btnName}</button>
+
+2nd way of updating either login or log out
+
+  const [btnName,setBtnName]=useState(false);
+  <button className="login-logout" onClick={()=>{setBtnName(!btnName)}}>
+            {btnName ? 'Log Out':'Log In'}
+          </button>
+
+# Search Filter
+
+<div className="search">
+          <input type="text" className="search-box" placeholder="Search Restaurant..."
+            value={searchText}
+            onChange={(e) => { setSearchText(e.target.value)}}
+          />
+          <button
+            className="search-button"
+            onClick={() => {
+              const filteredRestaurants=listOfRestaurants.filter((res) =>
+                res?.info?.name?.toLowerCase()?.includes(searchText.toLowerCase())
+              );
+              setFilteredRestaurants(filteredRestaurants)
+            }}
+          >
+            Search
+          </button>
+        </div>
+
+<!-- Whenever state variable updates, react triggers a reconcilliation cycle(re-renders the component)
+DOM Manipulation is expensive and react is more efficient in it -->
