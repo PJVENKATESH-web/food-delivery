@@ -215,3 +215,7 @@ const heading=()=>(<h1 className='heading'>Namaste React Functional Component</h
  import {Component} from 'path;
 
 
+# React Hooks
+(Normal JS utility functions)
+-useState() - State Variables
+-useEffect() - 
