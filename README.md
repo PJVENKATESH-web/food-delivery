@@ -265,3 +265,79 @@ const heading=()=>(<h1 className='heading'>Namaste React Functional Component</h
 
 <!-- Whenever state variable updates, react triggers a reconcilliation cycle(re-renders the component)
 DOM Manipulation is expensive and react is more efficient in it -->
+
+# useEffect 
+
+1. If no dependency array => useEffect is called on every render
+useEffect(()=>{})
+2. If dependency array is empty =[]=> useEffect is called on initial render(just once)
+useEffect(()=>{},[])
+3. If dependency array is [btnName] =>called everytime btnName is updated
+useEffect(()=>{},[btnName])
+
+# useState usecases
+Never create state variable outside of the component, it is used for creating local state variables in the functional component
+
+Never create state varaible in the conditional statements(if-else),loops(for),functions(()=>{})
+if(){
+  const [searchText,setSearchText]=useState('');
+}
+
+# 2 Types of Routing
+ - Client Side Routing => not making the network call, it just loads the component.
+ - Server Side Routing => make the network call, get the Component data 
+
+
+# Class Based Components:
+In About Component, there is a child class based component UserClass
+
+When the UserClass is mounted/loaded/intantiated, first constructor(props) is called and second render() is called
+
+import React from "react";
+
+class UserClass extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      count: 0,
+    };
+  }
+  render() {
+    const { name, location } = this.props;
+    const { count } = this.state;
+    return (
+      <div className="user-card">
+        <h2>Count: {count}</h2>
+        <button
+          onClick={() => {
+            this.setState({
+              count: this.state.count + 1,
+            });
+          }}
+        >
+          Button Increase
+        </button>
+        <button
+          onClick={() => {
+            this.setState((prevState) => {
+              if (prevState.count > 0) {
+                return { count: prevState.count - 1 };
+              }
+              return null; // no update
+            });
+          }}
+        >
+          Button Decrease
+        </button>
+        <h2>Name: {name}</h2>
+        <h3>Location: {location}</h3>
+        <h4>Contact: potnuru.jhonson@gmail.com</h4>
+      </div>
+    );
+  }
+}
+
+export default UserClass;
+
+
