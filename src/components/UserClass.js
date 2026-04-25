@@ -3,14 +3,18 @@ import React from "react";
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-
+    console.log(this.props.name+' Constructor is called')
     this.state = {
       count: 0,
     };
   }
+  componentDidMount(){
+    console.log(this.props.name+'Child ComponentDidMount is called');
+  }
   render() {
     const { name, location } = this.props;
     const { count } = this.state;
+    console.log(name+' is called')
     return (
       <div className="user-card">
         <h2>Count: {count}</h2>

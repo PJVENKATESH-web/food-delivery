@@ -340,4 +340,53 @@ class UserClass extends React.Component {
 
 export default UserClass;
 
+Component DidMount- it will called after the component is render in the DOM(like useEffect) - used for API Calls
+<!-- 
+
+- Parent Constructor
+- Parent Render 
+  - Jhonson Constructor
+  - Jhonson Render
+  - Aarvi Constructor
+  - Aarvi Render
+  - Jhonson DidMount
+  - Aarvi DidMount
+-Parent DidNount -->
+
+
+class About extends Component{
+  constructor(props){
+    super(props);
+    console.log('Parent Constructor is called')
+  }  
+  componentDidMount(){
+    console.log('Parent componentDidMount is called')
+  }
+  render(){
+    console.log('Parent Render is called')
+    return(
+      <div>
+      <h2>About Us</h2>
+      <h3>This is a Foody App</h3>
+      <UserClass name={'Jhonson (first class)'} location={'Chapara(first)'}/>
+      <UserClass name={'Aarvi (second class)'} location={'Narasanapeta(second)'}/>
+    </div>
+    )
+  }
+}
+==
+Parent Constructor is called
+About.js:17 Parent Render is called
+UserClass.js:6 Jhonson (first class) Constructor is called
+UserClass.js:17 Jhonson (first class) is called
+UserClass.js:6 Aarvi (second class) Constructor is called
+UserClass.js:17 Aarvi (second class) is called
+UserClass.js:12 Jhonson (first class)Child ComponentDidMount is called
+UserClass.js:12 Aarvi (second class)Child ComponentDidMount is called
+About.js:14 Parent componentDidMount is called
+
+React life CYcle method
+-Render Phase - Commit Phase
+
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 
