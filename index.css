@@ -104,6 +104,7 @@ body{
 }
 
 .user-card{
+    margin: 10mpx;
     padding: 10px;
     border: 1px solid black;
 }

@@ -374,6 +374,7 @@ class About extends Component{
     )
   }
 }
+
 ==
 Parent Constructor is called
 About.js:17 Parent Render is called
@@ -390,3 +391,36 @@ React life CYcle method
 
 https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 
+# github user api = https://docs.github.com/en/rest/users?apiVersion=2026-03-10
+
+https://api.github.com/users/PJVENKATESH-web
+
+Mounting
+-Constructor is called(have dummy)
+-Render is called(have dummy)
+-Component DidMount is called
+  - <API Call>
+  - <this.setState> - state variable is updated
+
+Update
+  - render(API data)
+  -  <HTML(new API data)> - user will see
+
+  - Component DidUpdate is called 
+
+
+# Code Splitting|Chunking|on Demand Loading|Lazy Loading|
+
+When you are loading an application, at that time if some components are not required in the initial render, then you can use this process to make the load efficiency faster.
+
+we have named import which provided by react i.e lazy
+
+import {lazy} from 'react';
+const Grocery = lazy(() => {
+  return import('./components/Grocery');
+});
+
+Syntax	Return
+() => import(...)	✅ implicit return
+() => { import(...) }	❌ undefined
+() => { return import(...) }	✅ correct

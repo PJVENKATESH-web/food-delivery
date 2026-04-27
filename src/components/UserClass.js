@@ -3,45 +3,42 @@ import React from "react";
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.name+' Constructor is called')
+    console.log('constructor is called')
     this.state = {
-      count: 0,
+      userInfo: {
+        name: "Dummy",
+        location: "Default",
+      },
     };
   }
-  componentDidMount(){
-    console.log(this.props.name+'Child ComponentDidMount is called');
+  async componentDidMount() {
+    const data = await fetch("https://api.github.com/users/PJVENKATESH-web");
+    const json = await data.json();
+    console.log('ComponentDidMount is called')
+    this.setState({
+      userInfo: json,
+    });
+  }
+  componentDidUpdate(){
+    console.log('ComponentDidUpdate is called')
+  }
+  componentWillUnmount(){
+    console.log('ComponentWillUnmount is called') 
   }
   render() {
-    const { name, location } = this.props;
-    const { count } = this.state;
-    console.log(name+' is called')
+    const { avatar_url, name, location } = this.state.userInfo;
+    // debugger;
+    console.log('Render is called')
     return (
       <div className="user-card">
-        <h2>Count: {count}</h2>
-        <button
-          onClick={() => {
-            this.setState({
-              count: this.state.count + 1,
-            });
-          }}
-        >
-          Button Increase
-        </button>
-        <button
-          onClick={() => {
-            this.setState((prevState) => {
-              if (prevState.count > 0) {
-                return { count: prevState.count - 1 };
-              }
-              return null; // no update
-            });
-          }}
-        >
-          Button Decrease
-        </button>
-        <h2>Name: {name}</h2>
-        <h3>Location: {location}</h3>
-        <h4>Contact: potnuru.jhonson@gmail.com</h4>
+        <div className="user-image">
+          <img src={avatar_url} />
+        </div>
+        <div className="user-details">
+          <h2>Name: {name}</h2>
+          <h3>Location: {location}</h3>
+          <h4>Contact: potnuru.jhonson@gmail.com</h4>
+        </div>
       </div>
     );
   }

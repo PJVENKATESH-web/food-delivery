@@ -8,19 +8,20 @@ import UserClass from './UserClass';
 class About extends Component{
   constructor(props){
     super(props);
-    console.log('Parent Constructor is called')
+    console.log('Parent Constructor');
   }  
   componentDidMount(){
-    console.log('Parent componentDidMount is called')
+    console.log('Parent DidMount')
   }
   render(){
-    console.log('Parent Render is called')
+    console.log('Parent render');
     return(
       <div>
       <h2>About Us</h2>
       <h3>This is a Foody App</h3>
+      <User name='function' location='default' />
       <UserClass name={'Jhonson (first class)'} location={'Chapara(first)'}/>
-      <UserClass name={'Aarvi (second class)'} location={'Narasanapeta(second)'}/>
+      
     </div>
     )
   }
