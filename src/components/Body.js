@@ -29,19 +29,18 @@ const Body = () => {
     setFilteredRestaurants(restaurantsList);
     setListOfRestaurants(restaurantsList);
   };
-  
+
   if (listOfRestaurants.length === 0) return <ShimmerUI />;
-  
 
   if (onlineStatus === false)
     return <h1>Looks like you're offline!! please check your intenret</h1>;
   return (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex p-4">
+        <div className="search mx-4">
           <input
             type="text"
-            className="search-box"
+            className="search-box px-4 py-2 border rounded-l-lg w-80 border-gray-400"
             placeholder="Search Restaurant..."
             value={searchText}
             onChange={(e) => {
@@ -49,7 +48,7 @@ const Body = () => {
             }}
           />
           <button
-            className="search-button"
+            className="search-button px-4 py-2 border rounded-r-lg border-gray-600 cursor-pointer bg-green-600"
             onClick={() => {
               const filteredRestaurants = listOfRestaurants.filter((res) =>
                 res?.info?.name
@@ -63,7 +62,7 @@ const Body = () => {
           </button>
         </div>
         <button
-          className="topRatedRestaurants"
+          className="topRatedRestaurants px-4 py-2 rounded-lg cursor-pointer bg-green-600 border border-gray-500 "
           onClick={() => {
             //filter logic here
             const filteredRestaurants = listOfRestaurants.filter(
@@ -75,7 +74,7 @@ const Body = () => {
           Top Rated Restaurants
         </button>
         <button
-          className="topRatedRestaurants"
+          className="px-4 py-2 mx-4 w-24 rounded-lg border cursor-pointer border-gray-500 bg-green-600"
           onClick={() => {
             //to reset the listOfRestaurants
             setFilteredRestaurants(listOfRestaurants);
@@ -84,7 +83,7 @@ const Body = () => {
           Reset
         </button>
       </div>
-      <div className="restaurant-container">
+      <div className="restaurant-container flex flex-wrap gap-4 ">
         {filteredRestaurants.map((restaurant) => (
           <Link
             className="restaurant-link"

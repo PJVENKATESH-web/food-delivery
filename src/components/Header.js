@@ -6,12 +6,12 @@ const Header = () => {
   const [btnName, setBtnName] = useState(false);
   const onlineStatus=useOnlineStatus();
   return (
-    <div className="header">
-      <div className="logo-container">
+    <div className="header flex justify-between items-center shadow-sm">
+      <div className="logo-container w-36">
         <img className="logo" src={LOGO_URL} alt="logo" />
       </div>
       <div className="nav-items">
-        <ul>
+        <ul className="p-4 m-4 flex gap-5"> 
           <li>
             Online Status: {onlineStatus ? '✅' : '❌' }
           </li>
