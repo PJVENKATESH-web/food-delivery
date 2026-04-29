@@ -15,15 +15,15 @@ const Body = () => {
   }, []);
   const onlineStatus = useOnlineStatus();
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4875418&lng=78.3953462&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
-    );
-
+    // const data = await fetch(
+    //   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4875418&lng=78.3953462&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
+    // );
+    const data=await fetch('https://namastedev.com/api/v1/listRestaurants');
     const json = await data.json();
-    console.log(data);
+    // console.log(data);
     // const restaurants=json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
     const restaurantsList =
-      json?.data?.cards?.find(
+      json?.data?.data?.cards?.find(
         (card) => card?.card?.card?.gridElements?.infoWithStyle?.restaurants,
       )?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
     setFilteredRestaurants(restaurantsList);
@@ -48,7 +48,7 @@ const Body = () => {
             }}
           />
           <button
-            className="search-button px-4 py-2 border rounded-r-lg border-gray-600 cursor-pointer bg-green-600"
+            className="search-button px-4 py-2 border rounded-r-lg border-gray-300 cursor-pointer bg-green-400"
             onClick={() => {
               const filteredRestaurants = listOfRestaurants.filter((res) =>
                 res?.info?.name
@@ -62,7 +62,7 @@ const Body = () => {
           </button>
         </div>
         <button
-          className="topRatedRestaurants px-4 py-2 rounded-lg cursor-pointer bg-green-600 border border-gray-500 "
+          className="topRatedRestaurants px-4 py-2 rounded-lg cursor-pointer bg-green-400 border border-gray-300 "
           onClick={() => {
             //filter logic here
             const filteredRestaurants = listOfRestaurants.filter(
@@ -74,7 +74,7 @@ const Body = () => {
           Top Rated Restaurants
         </button>
         <button
-          className="px-4 py-2 mx-4 w-24 rounded-lg border cursor-pointer border-gray-500 bg-green-600"
+          className="px-4 py-2 mx-4 w-24 rounded-lg border cursor-pointer border-gray-500 bg-green-400"
           onClick={() => {
             //to reset the listOfRestaurants
             setFilteredRestaurants(listOfRestaurants);
@@ -83,7 +83,7 @@ const Body = () => {
           Reset
         </button>
       </div>
-      <div className="restaurant-container flex flex-wrap gap-4 ">
+      <div className="restaurant-container flex flex-wrap gap-4 mx-14">
         {filteredRestaurants.map((restaurant) => (
           <Link
             className="restaurant-link"
